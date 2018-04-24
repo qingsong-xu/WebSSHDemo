@@ -1,26 +1,28 @@
 package com.xuqingsong.ssh;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Student implements Serializable {
-    private String id;
+    private int id;
     private String name;
     private String age;
-    private Date birthday;
+    private String birthday;
 
-    public Student(String id, String name, String age, Date birthday) {
+    public Student() {
+    }
+
+    public Student(int id, String name, String age, String birthday) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.birthday = birthday;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -40,21 +42,23 @@ public class Student implements Serializable {
         this.age = age;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
-                ", age=" + age +
+                ", age='" + age + '\'' +
                 ", birthday='" + birthday + '\'' +
                 '}';
     }
 }
+
+

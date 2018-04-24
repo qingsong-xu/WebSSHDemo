@@ -11,9 +11,9 @@
     <class name="com.xuqingsong.ssh.Student" table="students" catalog="ztph">
         <!-- class下必须要有一个id的子元素 -->
         <!-- id是用于描述主键的 -->
-        <id name="id" column="id">
+        <id name="id" column="id" type="java.lang.Integer">
             <!-- 主键生成策略 -->
-            <generator class="native"></generator>
+            <generator class="assigned"></generator>
         </id>
         <!--
             使用property来描述属性与字段的对应关系
@@ -21,6 +21,6 @@
         -->
         <property name="name" column="name" length="45" type="java.lang.String"></property>
         <property name="age" column="age" length="45" type="java.lang.String"></property>
-        <property name="birthday" column="birthday" type="java.util.Date"></property>
+        <property name="birthday" column="birthday" type="java.lang.String"></property>
     </class>
 </hibernate-mapping>
