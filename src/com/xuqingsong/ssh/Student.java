@@ -1,10 +1,20 @@
 package com.xuqingsong.ssh;
 
-public class StudentEntity {
+import java.io.Serializable;
+import java.util.Date;
+
+public class Student implements Serializable {
     private String id;
     private String name;
     private String age;
-    private String birthday;
+    private Date birthday;
+
+    public Student(String id, String name, String age, Date birthday) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.birthday = birthday;
+    }
 
     public String getId() {
         return id;
@@ -30,17 +40,17 @@ public class StudentEntity {
         this.age = age;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
     @Override
     public String toString() {
-        return "StudentEntity{" +
+        return "Student{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +

@@ -2,28 +2,50 @@ package com.xuqingsong.ssh;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Date;
+
 public class HibernateTest {
+    private SessionFactory sessionFactory;
+    private Session session;
+    private Transaction transaction;
 
-    @Test
-    public void query(){
+    @Before
+    public void init() {
+        //创建配置对象
+        Configuration configuration = new Configuration().configure();
+        //通过配置对象创建服务注册对象
+        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+        //创建会话工厂对象
+        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+        //获得会话对象
+        session = sessionFactory.openSession();
+        //开启事务
+        transaction = session.beginTransaction();
+    }
 
-        Configuration config = new Configuration().configure(); // Hibernate框架加载hibernate.cfg.xml文件
-        SessionFactory sessionFactory = config.buildSessionFactory();
-        Session session = sessionFactory.openSession(); // 相当于得到一个Connection
-        // 开启事务
-        session.beginTransaction();
-
-        // 根据业务来编写代码
-        StudentEntity c = session.load(StudentEntity.class, 1);
-
-        System.out.println(c.getName());
-
-        // 事务提交
-        session.getTransaction().commit();
+    @After
+    public void destory() {
+        //提交事务
+        transaction.commit();
+        //关闭会话
         session.close();
+        //关闭会话工厂
         sessionFactory.close();
     }
+
+    @Test
+    public void testSaveStudents() {
+        Student s = new Student("1", "张三峰", "19", new Date());
+        session.save(s);
+    }
+
+
 }
