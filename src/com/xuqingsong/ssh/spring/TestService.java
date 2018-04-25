@@ -1,4 +1,4 @@
-package test;
+package com.xuqingsong.ssh.spring;
 
 /**
  * Created by kinthon on 17-3-31.

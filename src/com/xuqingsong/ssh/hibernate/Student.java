@@ -1,4 +1,4 @@
-package com.xuqingsong.ssh;
+package com.xuqingsong.ssh.hibernate;
 
 import java.io.Serializable;
 

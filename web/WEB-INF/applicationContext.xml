@@ -3,10 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean class="test.TestService" id="testService">
-        <property name="name" value="spring"></property>
+    <bean class="com.xuqingsong.ssh.spring.TestService" id="testService">
+        <property name="name" value="com.xuqingsong.ssh.spring"></property>
     </bean>
-    <bean class="test.CustomService" id="customService">
+    <bean class="com.xuqingsong.ssh.spring.CustomService" id="customService">
         <property name="name" value="徐青松"/>
         <property name="sex" value="男"/>
         <property name="age" value="19"/>

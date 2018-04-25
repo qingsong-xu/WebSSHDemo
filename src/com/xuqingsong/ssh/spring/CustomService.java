@@ -1,4 +1,4 @@
-package test;
+package com.xuqingsong.ssh.spring;
 
 public class CustomService {
     private String name;

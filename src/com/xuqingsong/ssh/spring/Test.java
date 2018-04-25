@@ -1,10 +1,10 @@
-package test;
+package com.xuqingsong.ssh.spring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 /**
- * Created by kinthon on 17-3-31. 
+ * Created by xuqingsong on 17-3-31.
  */
 public class Test {
     public static void main(String[] args)

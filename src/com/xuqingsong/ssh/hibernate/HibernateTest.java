@@ -1,11 +1,10 @@
-package com.xuqingsong.ssh;
+package com.xuqingsong.ssh.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.junit.After;
 import org.junit.Before;
@@ -21,8 +20,9 @@ public class HibernateTest {
 
     @Before
     public void init() {
-        //通过配置对象创建服务注册对象
+        //创建服务注册对象
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
+//        创建会话工厂对象
         sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
         //获得会话对象
         session = sessionFactory.openSession();
@@ -44,7 +44,7 @@ public class HibernateTest {
     public void testSaveStudents() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String birthdayStr = simpleDateFormat.format(new Date());
-        Student s = new Student(110, "张三峰", "19", birthdayStr);
+        Student s = new Student(111, "张三峰", "19", birthdayStr);
         System.out.println(s);
         session.save(s);
         System.out.println(session);
@@ -53,7 +53,7 @@ public class HibernateTest {
 
     @Test
     public void testGetStudent() {
-        Student student = session.get(Student.class, 110);
+        Student student = session.get(Student.class, 111);
         System.out.println(student);
     }
 
